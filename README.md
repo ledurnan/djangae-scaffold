@@ -18,11 +18,7 @@ sitepackages will be wiped out and reinstalled with pip. The SDK will only be do
 
 Create a Google App Engine project. Edit `app.yaml` and change `application: djangae-scaffold` to `application: your-app-id`. Then, if you're in the `djangae-scaffold` directory, run:
 
-    $ appcfg.py update ./
-
-If you have two-factor authentication enabled in your Google account, run:
-
-    $ appcfg.py --oauth2 update ./
+    $ ./sitepackages/google_appengine/appcfg.py update ./
 
 ## Custom Domains
 
