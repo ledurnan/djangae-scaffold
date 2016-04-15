@@ -52,7 +52,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'csp.middleware.CSPMiddleware',
     'session_csrf.CsrfMiddleware',
-    'djangosecure.middleware.SecurityMiddleware',
+    #'djangosecure.middleware.SecurityMiddleware', # django-secure integrated into Django >= 1.8
+    'django.middleware.security.SecurityMiddleware',
 )
 
 TEMPLATES = [
@@ -75,7 +76,10 @@ TEMPLATES = [
     },
 ]
 
-
+# List of strings used by django-secure
+# How can we ensure that the scaffold.checks ones are done?
+# http://django-secure.readthedocs.org/en/latest/settings.html
+'''
 SECURE_CHECKS = [
     "djangosecure.check.sessions.check_session_cookie_secure",
     "djangosecure.check.sessions.check_session_cookie_httponly",
@@ -86,6 +90,7 @@ SECURE_CHECKS = [
     "scaffold.checks.check_session_csrf_enabled",
     "scaffold.checks.check_csp_is_not_report_only"
 ]
+'''
 
 CSP_REPORT_URI = reverse_lazy('report_csp')
 CSP_REPORTS_LOG = True
